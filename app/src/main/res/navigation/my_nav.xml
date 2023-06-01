@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.barber_project.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_typesFragment"
+            app:destination="@id/typesFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.barber_project.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_typesFragment"
+            app:destination="@id/typesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.barber_project.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.example.barber_project.OrderDetailsFragment"
+        android:label="fragment_orderdetails"
+        tools:layout="@layout/fragment_orderdetails" />
+    <fragment
+        android:id="@+id/typesFragment"
+        android:name="com.example.barber_project.TypesFragment"
+        android:label="fragment_types"
+        tools:layout="@layout/fragment_types" >
+        <action
+            android:id="@+id/action_typesFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+</navigation>
