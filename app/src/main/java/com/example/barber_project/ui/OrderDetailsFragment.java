@@ -112,13 +112,13 @@ public class OrderDetailsFragment extends Fragment {
     }
 
     public void saveReservationInner(String userEmailID, String barberEmailID, String dayName, String date,
-                                     String time, int dayOfMonth, int month, int year, String appointmentID,
+                                     String time, int dayOfMonth, int month, int year, String reservationID,
                                      String userName, String barberName){
-        Reservation appointment = new Reservation(appointmentID, userEmailID, barberEmailID, userName, barberName,
+        Reservation reservation = new Reservation(reservationID, userEmailID, barberEmailID, userName, barberName,
                 dayName, date, time, dayOfMonth, month, year);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("reservations").child(appointment.reservationID);
-        myRef.setValue(appointment);
+        DatabaseReference myRef = database.getReference("reservations").child(reservation.reservationID);
+        myRef.setValue(reservation);
         Toast.makeText(getActivity(),"Your reservation has been saved", Toast.LENGTH_LONG).show();
     }
 
