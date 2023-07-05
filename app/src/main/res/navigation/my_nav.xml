@@ -7,35 +7,35 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.barber_project.SignUpFragment"
+        android:name="com.example.barber_project.ui.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
 
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_signUpFragment_to_typesFragment"
-            app:destination="@id/typesFragment" />
     </fragment>
 
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.barber_project.LoginFragment"
+        android:name="com.example.barber_project.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_typesFragment"
-            app:destination="@id/typesFragment" />
+            android:id="@+id/action_loginFragment_to_userFragment2"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.barber_project.HomeFragment"
+        android:name="com.example.barber_project.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -44,16 +44,79 @@
     </fragment>
     <fragment
         android:id="@+id/orderDetailsFragment"
-        android:name="com.example.barber_project.OrderDetailsFragment"
+        android:name="com.example.barber_project.ui.OrderDetailsFragment"
         android:label="fragment_orderdetails"
         tools:layout="@layout/fragment_orderdetails" />
     <fragment
-        android:id="@+id/typesFragment"
-        android:name="com.example.barber_project.TypesFragment"
-        android:label="fragment_types"
-        tools:layout="@layout/fragment_types" >
+        android:id="@+id/barbersFragment"
+        android:name="com.example.barber_project.ui.BarbersFragment"
+        android:label="fragment_barbers2"
+        tools:layout="@layout/fragment_barbers2" >
         <action
-            android:id="@+id/action_typesFragment_to_orderDetailsFragment"
+            android:id="@+id/action_barbersFragment_to_orderDetailsFragment"
             app:destination="@id/orderDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.barber_project.ui.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_barbersFragment"
+            app:destination="@id/barbersFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_userMyReservationsRecycleViewFragment2"
+            app:destination="@id/userMyReservationsRecycleViewFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.barber_project.ui.AdminFragment"
+        android:label="fragment_admin"
+        tools:layout="@layout/fragment_admin" >
+        <action
+            android:id="@+id/action_adminFragment_to_adminAddDayOff"
+            app:destination="@id/adminAddDayOff" />
+        <action
+            android:id="@+id/action_adminFragment_to_adminChangeWorkHoursFragment"
+            app:destination="@id/adminChangeWorkHoursFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_adminDaysOffRecycleViewFragment"
+            app:destination="@id/adminDaysOffRecycleViewFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_adminWorkHoursFragment"
+            app:destination="@id/adminWorkHoursFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_adminMyReservationsRecycleViewFragment"
+            app:destination="@id/adminMyReservationsRecycleViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAddDayOff"
+        android:name="com.example.barber_project.ui.adminAddDayOff"
+        android:label="fragment_admin_add_day_off"
+        tools:layout="@layout/fragment_admin_add_day_off" />
+    <fragment
+        android:id="@+id/adminChangeWorkHoursFragment"
+        android:name="com.example.barber_project.ui.adminChangeWorkHoursFragment"
+        android:label="fragment_admin_change_work_hours"
+        tools:layout="@layout/fragment_admin_change_work_hours" />
+    <fragment
+        android:id="@+id/adminDaysOffRecycleViewFragment"
+        android:name="com.example.barber_project.ui.AdminDaysOffRecycleViewFragment"
+        android:label="fragment_admin_days_off_recycle_view"
+        tools:layout="@layout/fragment_admin_days_off_recycle_view" />
+    <fragment
+        android:id="@+id/adminWorkHoursFragment"
+        android:name="com.example.barber_project.ui.adminWorkHoursFragment"
+        android:label="fragment_admin_work_hours"
+        tools:layout="@layout/fragment_admin_work_hours" />
+    <fragment
+        android:id="@+id/adminMyReservationsRecycleViewFragment"
+        android:name="com.example.barber_project.ui.AdminMyReservationsRecycleViewFragment"
+        android:label="fragment_admin_my_reservations_recycle_view"
+        tools:layout="@layout/fragment_admin_my_reservations_recycle_view" />
+    <fragment
+        android:id="@+id/userMyReservationsRecycleViewFragment2"
+        android:name="com.example.barber_project.ui.UserMyReservationsRecycleViewFragment"
+        android:label="fragment_user_my_reservations_recycle_view"
+        tools:layout="@layout/fragment_user_my_reservations_recycle_view" />
 </navigation>

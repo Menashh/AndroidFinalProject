@@ -1,4 +1,4 @@
-package com.example.barber_project;
+package com.example.barber_project.ui;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.barber_project.R;
+import com.example.barber_project.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -61,7 +64,7 @@ public class SignUpFragment extends Fragment {
                                         bundle.putStringArray("credentials", new String[]{email, password1});
 
                                         Toast.makeText(getContext(),"SignUp succeed",Toast.LENGTH_LONG).show();
-                                        Navigation.findNavController(v).navigate(R.id.action_signUpFragment_to_typesFragment,bundle);
+                                        Navigation.findNavController(v).navigate(R.id.action_signUpFragment_to_loginFragment,bundle);
                                     } else {
                                         Toast.makeText(getContext(),"The email address is not valid / Short password",Toast.LENGTH_LONG).show();
                                     }
@@ -92,12 +95,6 @@ public class SignUpFragment extends Fragment {
             }
         });
 
-/*        sign_up_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_orderDetailsFragment);
-            }
-        });*/
 
         go_to_login_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.barber_project;
+package com.example.barber_project.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.barber_project.R;
 
 
 public class HomeFragment extends Fragment {

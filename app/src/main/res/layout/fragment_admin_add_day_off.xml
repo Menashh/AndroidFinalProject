@@ -5,28 +5,24 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:orientation="vertical"
-    tools:context=".ui.OrderDetailsFragment" >
+    tools:context=".ui.adminAddDayOff">
 
     <TextView
-        android:id="@+id/textViewPickDateUser"
-        android:layout_width="300dp"
+        android:id="@+id/textViewPickDateAdmin"
+        android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/round_square"
         android:paddingLeft="10dp"
-        android:text="choose a date:"
+        android:text="Choose a date:"
         android:textColor="@color/black"
         android:textSize="34sp" />
 
     <CalendarView
-        android:id="@+id/calendarViewMakeReservation"
+        android:id="@+id/calendarViewAdminAddDayOff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:background="@drawable/round_square" />
 
 </LinearLayout>
-
-
-
-

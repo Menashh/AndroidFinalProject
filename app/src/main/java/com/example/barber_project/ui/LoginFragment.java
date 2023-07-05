@@ -1,4 +1,4 @@
-package com.example.barber_project;
+package com.example.barber_project.ui;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.barber_project.R;
+import com.example.barber_project.storage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +27,12 @@ public class LoginFragment extends Fragment {
     Button login;
     Button register;
 
+    public Boolean validateAdmin(String email, String pass){
+        if ( ((email.equals("meni@gmail.com")) || (email.equals("sher@gmail.com"))||(email.equals("effi@gmail.com")))
+                && pass.equals("123456") ){ return true; }
+        else { return false; }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
@@ -35,16 +44,12 @@ public class LoginFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
 
-        if (getArguments() != null && getArguments().getStringArray("credentials") != null) {
-            emailEditText1.setText(getArguments().getStringArray("credentials")[0]);
-            passwordEditText1.setText(getArguments().getStringArray("credentials")[1]);
-        }
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = emailEditText1.getText().toString().trim();
                 String password = passwordEditText1.getText().toString().trim();
+                Boolean adminCheck = validateAdmin(email,password);
 
 
                 if (validateInfo(email, password)) {
@@ -53,10 +58,16 @@ public class LoginFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        //Toast.makeText(getContext(),"Login succeed",Toast.LENGTH_LONG).show();
-                                        String currentUID = task.getResult().getUser().getUid();
-                                        storage.setCurrentUID(currentUID);
-                                        Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_typesFragment);
+                                        if (adminCheck){
+                                            Bundle bundle = new Bundle();
+                                            bundle.putString("adminEmail",email);
+                                            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_adminFragment, bundle);
+                                        }
+                                        else{
+                                            Bundle bundle = new Bundle();
+                                            bundle.putString("userEmail",email);
+                                            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_userFragment2, bundle);
+                                        }
                                     }
                                     else {
                                         Toast.makeText(getActivity(),"Email and password do not match.",Toast.LENGTH_SHORT).show();
