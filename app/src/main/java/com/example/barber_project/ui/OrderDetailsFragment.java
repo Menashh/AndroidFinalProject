@@ -128,6 +128,7 @@ public class OrderDetailsFragment extends Fragment {
         String reservationID;
         final String[] userName = new String[2];
         String barberName;
+        String username1 = userEmailID.replaceAll("^(.+)@.*$", "$1").replace(".", "");
 
         if (barberEmailID.equals("meni@gmailcom")){
             barberName = "Meni Banin";
@@ -156,13 +157,13 @@ public class OrderDetailsFragment extends Fragment {
                 }
                 else{
                     String path;
-                    path = "users/" + userEmailID + "/name";
+                    path = "users/" + username1 + "/name";
                     FirebaseDatabase database2 = FirebaseDatabase.getInstance();
                     DatabaseReference myRef2 = database2.getReference(path);
                     myRef2.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            userName[0] = snapshot.getValue().toString();
+                            userName[0] = username1;
                             saveReservationInner(userEmailID, barberEmailID, dayName, date, time,
                                     dayOfMonth, month, year, reservationID, userName[0], barberName);
                         }

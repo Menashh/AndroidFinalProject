@@ -1,5 +1,6 @@
 package com.example.barber_project.ui;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,18 +42,18 @@ public class AdminFragment extends Fragment {
         String Email = getArguments().getString("adminEmail");
         Email = Email.replace(".","");
         String finalEmail = Email;
+        String username = Email.replaceAll("^(.+)@.*$", "$1");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("barbers").child(finalEmail);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                textViewEnter.setText(String.valueOf(dataSnapshot.child("name").getValue()) );
+                textViewEnter.setText(username);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 

@@ -34,16 +34,16 @@ public class UserMyReservationsRecycleViewFragment extends Fragment {
 
         assert getArguments() != null;
         String arg = getArguments().getString("userEmailMyReservations");
+
         String finalArg = arg;
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("reservations");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                dataSet = new ArrayList<>();
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     if (childSnapshot.child("userEmailID").getValue().toString().equals(finalArg)) {
-                        dataSet.add(new Reservation(
+                        UserMyReservationsRecycleViewFragment.this.dataSet.add(new Reservation(
                                 childSnapshot.child("barberName").getValue().toString(),
                                 childSnapshot.child("dayName").getValue().toString(),
                                 childSnapshot.child("date").getValue().toString(),
@@ -72,7 +72,7 @@ public class UserMyReservationsRecycleViewFragment extends Fragment {
 
         recycleView.setItemAnimator(new DefaultItemAnimator());
 
-        dataSet = new ArrayList<>();
+        dataSet = new ArrayList<Reservation>();
 
         assert getArguments() != null;
         String arg = getArguments().getString("userEmailMyReservations");
