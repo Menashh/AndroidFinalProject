@@ -133,10 +133,7 @@ public class OrderDetailsFragment extends Fragment {
         if (barberEmailID.equals("meni@gmailcom")){
             barberName = "Meni Banin";
         }
-        else if (barberEmailID.equals("sher@gmailcom")){
-            barberName = "Sher Cohen";
-        }
-        else { barberName = "Effi";}
+        else { barberName = "Sher Cohen";}
         reservationID = dayOfMonth + "-" + month + "-" + year + " -- " + time + " -- " + barberName;
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
