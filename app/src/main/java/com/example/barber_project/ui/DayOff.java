@@ -20,6 +20,5 @@ public class DayOff {
         this.date = date;
     }
 
-    public DayOff() {
-    }
+
 }
