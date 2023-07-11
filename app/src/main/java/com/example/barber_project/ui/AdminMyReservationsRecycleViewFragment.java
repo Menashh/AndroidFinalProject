@@ -42,11 +42,8 @@ public class AdminMyReservationsRecycleViewFragment extends Fragment {
         if (finalEmail.equals("sher@gmailcom")) {
             barberName="Sher Cohen";
         }
-        else if (finalEmail.equals("meni@gmailcom")) {
-            barberName = "Meni Banin";
-        }
         else {
-            barberName = "Effi";
+            barberName = "Meni Banin";
         }
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("reservations");
