@@ -18,7 +18,6 @@
             android:layout_height="55dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/home_page_circle"
             android:gravity="center"
             android:text="Work hours"
             android:textColor="@color/black"
