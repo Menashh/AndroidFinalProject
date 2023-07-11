@@ -6,15 +6,13 @@
     tools:context=".ui.HomeFragment">
 
 
-    <TextView
-        android:id="@+id/title"
+    <ImageView
+        android:id="@+id/GfG_full_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:gravity="center"
-        android:text="Sher and Meni Hair Design"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:layout_gravity="top"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/logo" />
 
     <Button
         android:id="@+id/signupButton"
