@@ -25,14 +25,12 @@ public class BarbersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_barbers2, container, false);
-        Button buttonEffi = view.findViewById(R.id.effiBarber);
         Button buttonSher = view.findViewById(R.id.sherBarber);
         Button buttonMeni = view.findViewById(R.id.meniBarber);
 
         assert getArguments() != null;
         String userEmail = getArguments().getString("userEmail");
 
-        setBarberButtonClickListener(buttonEffi, userEmail, "effi@gmailcom");
         setBarberButtonClickListener(buttonSher, userEmail, "sher@gmailcom");
         setBarberButtonClickListener(buttonMeni, userEmail, "meni@gmailcom");
 
