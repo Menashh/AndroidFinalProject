@@ -28,7 +28,7 @@ public class LoginFragment extends Fragment {
     Button register;
 
     public Boolean validateAdmin(String email, String pass){
-        if ( ((email.equals("meni@gmail.com")) || (email.equals("sher@gmail.com"))||(email.equals("effi@gmail.com")))
+        if ( ((email.equals("meni@gmail.com")) || (email.equals("sher@gmail.com")))
                 && pass.equals("123456") ){ return true; }
         else { return false; }
     }
