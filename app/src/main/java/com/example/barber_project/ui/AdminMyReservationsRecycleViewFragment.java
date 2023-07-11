@@ -86,8 +86,7 @@ public class AdminMyReservationsRecycleViewFragment extends Fragment {
         String finalArg = arg;
         String barberName;
         if (finalArg.equals("sher@gmailcom")){barberName = "Sher Cohen";}
-        else if (finalArg.equals("meni@gmailcom")){barberName = "Meni Banin";}
-        else{barberName = "Effi";}
+        else{barberName = "Meni Banin";}
 
         adapter = new CustomAdapterAdminMyReservations(dataSet,barberName);
         recycleView.setAdapter(adapter);
